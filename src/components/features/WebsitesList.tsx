@@ -29,7 +29,7 @@ export function WebsitesList() {
       const matchesSearch =
         !searchQuery ||
         website.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        website.domain.toLowerCase().includes(searchQuery.toLowerCase());
+        website.url?.toLowerCase().includes(searchQuery.toLowerCase());
 
       const matchesStatus = !statusFilter || website.status === statusFilter;
 
@@ -81,24 +81,26 @@ export function WebsitesList() {
       render: (_, row) => (
         <div>
           <p className="font-medium text-gray-100">{row.name}</p>
-          <a
-            href={`https://${row.domain}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-amber-500 hover:text-amber-400 flex items-center gap-1"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {row.domain}
-            <ExternalLink className="w-3 h-3" />
-          </a>
+          {row.url && (
+            <a
+              href={row.url.startsWith('http') ? row.url : `https://${row.url}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-amber-500 hover:text-amber-400 flex items-center gap-1"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {row.url}
+              <ExternalLink className="w-3 h-3" />
+            </a>
+          )}
         </div>
       ),
     },
     {
-      key: 'niche',
-      label: 'Niche',
+      key: 'website_type',
+      label: 'Type',
       sortable: true,
-      render: (value) => String(value || '-'),
+      render: (_, row) => row.website_type || '-',
     },
     {
       key: 'identity_id',

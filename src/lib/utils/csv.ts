@@ -28,8 +28,9 @@ const websiteConfig: ExportConfig = {
   filename: 'websites',
   fields: [
     { key: 'name', label: 'Name' },
-    { key: 'domain', label: 'Domain' },
-    { key: 'niche', label: 'Niche' },
+    { key: 'url', label: 'URL' },
+    { key: 'website_type', label: 'Type' },
+    { key: 'hosting_provider', label: 'Hosting Provider' },
     { key: 'status', label: 'Status' },
     { key: 'notes', label: 'Notes' },
     { key: 'created_at', label: 'Created At' },
