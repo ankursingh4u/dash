@@ -109,7 +109,7 @@ export function OrderForm({
     try {
       if (order) {
         const previousData = { ...order };
-        const updated = updateOrder(order.id, {
+        const updated = await updateOrder(order.id, {
           ...result.data,
           order_date: new Date(result.data.order_date).toISOString(),
           refund_reminder_date: result.data.refund_reminder_date
@@ -132,7 +132,7 @@ export function OrderForm({
           onSuccess?.();
         }
       } else {
-        const newOrder = addOrder({
+        const newOrder = await addOrder({
           ...result.data,
           order_date: new Date(result.data.order_date).toISOString(),
           refund_reminder_date: result.data.refund_reminder_date

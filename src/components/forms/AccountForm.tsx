@@ -83,7 +83,7 @@ export function AccountForm({
 
       if (account) {
         const previousData = { ...account };
-        const updated = updateAccount(account.id, {
+        const updated = await updateAccount(account.id, {
           ...dataToSave,
           // If password was provided, store it encrypted (mock: store as-is)
           encrypted_password: dataToSave.password || account.encrypted_password,
@@ -104,7 +104,7 @@ export function AccountForm({
           onSuccess?.();
         }
       } else {
-        const newAccount = addAccount({
+        const newAccount = await addAccount({
           ...dataToSave,
           encrypted_password: dataToSave.password,
           created_by: user?.id || '',

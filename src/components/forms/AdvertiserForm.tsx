@@ -74,7 +74,7 @@ export function AdvertiserForm({
     try {
       if (advertiser) {
         const previousData = { ...advertiser };
-        const updated = updateAdvertiser(advertiser.id, result.data);
+        const updated = await updateAdvertiser(advertiser.id, result.data);
 
         if (updated) {
           addAction({
@@ -91,7 +91,7 @@ export function AdvertiserForm({
           onSuccess?.();
         }
       } else {
-        const newAdvertiser = addAdvertiser({
+        const newAdvertiser = await addAdvertiser({
           ...result.data,
           created_by: user?.id || '',
         });

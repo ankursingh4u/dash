@@ -13,7 +13,12 @@
       "Bash(taskkill:*)",
       "Bash(powershell \"Stop-Process -Id 12544 -Force\")",
       "Bash(node scripts/setup-database.js:*)",
-      "Bash(git remote add:*)"
+      "Bash(git remote add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd CodersHive Operations Dashboard with Supabase integration\n\n- Add authentication with Supabase Auth\n- Add dashboard layout with sidebar navigation\n- Add master data management \\(Identities, Websites, Cards\\)\n- Add platform management \\(ClickBank, Digistore24, etc.\\)\n- Add forms with grouped sections and validation\n- Add data store with Supabase CRUD operations\n- Add RLS policies for secure data access\n- Update Identity form with extended fields \\(personal, location, tech & docs\\)\n- Update Website form with credentials and platform checkouts\n- Update Card form with grouped sections\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nFix Website type: replace domain with url field\n\n- Update WebsitesList to use url instead of domain\n- Update csv export config for new website fields\n- Add website_type column to list view\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git commit:*)"
     ]
   }
 }
